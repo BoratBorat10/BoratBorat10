@@ -1,14 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en-us">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Cayman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Plane Shadow</h1>
+      <h2 class="project-tagline">Mapping Shadows from Overhead Planes</h2>
+      <h2 class="project-tagline">Personal Project by Yaron Gefen</h2>
+
+  
+      <a href="mailto:yarongefen@gmail.com" class="btn">Contact Me</a>
+    </section>
+
+    <section class="main-content">
+      
+
+      <h1>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Airplane Shadow</h1>
+
+   
+      
+      <img src="assests\GIF-2023-02-26-16-34-56.gif" >
+
+      <h2>
+      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+        <p>For many living under the approach path for a busy international airport is a reason the demand lower rent. But for me it held a great opportunity. One day walking around the neighborhood i heard the now familiar noise of a airplane flying low for landing and a few seconds later i was enveloped for an instant in darkness. Before i could realize what had happened it had already passed. I could not believe it, it was the planes shadow!</p>
+        <p>I could not let this special experience be a one time occurrence. Being engulfed for an instant in the shadow of a 44 thousand ton beast flying above you was something that i had to experience again. But how? My mind raced. I quickly sketched up a diagram and realized that I only need a few key pieces of information to make it all work. I then set out to build a proof of concept.</p>
+
+      <h2>
+      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calculation</h2>
+        <p>In order to calculate the position of a the shadow one needs to gather the following information: </p>
+
+        <li>Airplane location (Lat, Lon)</li>
+        <li>Airplane height</li>
+        <li>Sun position (altitude, azimuth)</li>
+
+        <p>Live airplane information is retrieved via <a href="https://airlabs.co/docs/flights">Airlabs API</a>. Sun position is uses the <a href="https://github.com/mourner/suncalc">Suncalc</a> JavaScript library.</p>
+
+        <p>With this information the of the location where the shadow will be cast is just some trigonometry and Geodesic calculations using the <a href="https://www.movable-type.co.uk/scripts/geodesy-library.html">Geodesy</a> library.        </p>
+
+        <img src="https://www.fs.usda.gov/nac/buffers/images/guide/5.6a.jpg" >
+
+        
+
+        <h2>
+          <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validation</h2>
+          
+          <p>The code had been written, the UI build. I am consistently projecting the calculated position of shadows cast from overhead airplanes. But sitting in front of the computer there I have no idea if any of this actually translates to the real world. There is only one way to find out.
+          </p>
+
+          <p>Loading the site on my phone I headed out to the beach, situated myself squarely in the expected trajectory and waited for a plane to approach.
+          </p>
+
+          <p>And then...          </p>
+
+          <img src="assests\GIF-2023-02-10-15-39-52- beach.gif" style="width: 400px;"  >
+
+          <p>It works! We now have a reliable method of predicting when and where the shadow from the airplane will be cast. This opens up the opportunity to consistently experience this phenomenon, as well as being able to prepare in advance to capture it on camera.
+          </p>
+
+          <h2>
+            <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+            <h3>
+              <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sun Slider</h3>
+
+              <p>Using the slider above the map, one can scroll through the trajectory of aircraft shadow for the whole day. Planes land using an <a href="https://en.wikipedia.org/wiki/Instrument_landing_system">ILS</a> which result and extremely precise and reliable approaches (displayed as a permanent red line on the map).
+              </p>
+
+              <p>Thus, knowing the exact path used for approach, we can calculate the shadow trajectory for the different sun positions thought out the day.
+              </p>
+
+              <p>This can be used to know at what times one can expect shadows above their home. When sliding the shadow line, the corresponding  time is updated above the slider. 
+              </p>
+
+              <img src="assests\shadow line.gif" style="width: 400px;" >
 
 
- <h1>Hello World!</h1>
-    
-</body>
+              <h3>
+                <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Airplane Information</h3>
+            
+                  <p>Clicking on a Airplane will bring up its flight information. Clicking on a shadow will display the name of the plane casting it. This is useful from crowded areads.
+                  </p>
+
+                  <img src="assests\plane_info.png" style="width: 400px;"   >
+
+                  
+
+
+                <h3>
+                  <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runway Detection</h3>
+                  
+                  
+                  <p>Is is useful to know which runways are currently in use since they affect the approach pattern. For example I would get shadows in my neighborhood only when runway 12 was active.
+                    </p>
+                    <p>Using historical flight data I generated buffers using the <a href="https://shapely.readthedocs.io/en/stable/reference/shapely.buffer.html">Shapely</a> Python package. I expotred the coordinates of the buffers to GeoJson wichce Leaflet accespt.                  </p>
+
+                    <p>Using <a href="https://turfjs.org/">Turf.js</a>, the program can now recognize if airplanes are contained inside the geographic buffer (and in addition they are at the correct height and heading) and figure out the which runway is now active for approaches. </p>
+
+                    <img src="assests\rnwy_detc.png" alt="image-20240604162450452" style="width: 400px;" />
+      
+      
+                    <h2>
+                      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+      
+                      <p>As far as proving the initial concept and creating a interface to visualize the results, this project has been a great success. I have many more features I would want to add, such as using the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation API</a>  to notify the user of nearby shadows, among other. I learned so much new methods and skills and really enjoyed the creative process of giving life to an idea.</p>
+
+                      
+      <section class="page-header">
+        <a href="https://www.google.com" class="btn">Try It Out! </a>
+
+        <p>It is still a work of progrss</p>
+      </section>
+
+      <footer class="site-footer">
+        <span class="site-footer-credits"><a href="https://github.com/jasonlong/cayman-theme">Cayman</a> theme by <a href="https://github.com/jasonlong">jasonlong</a>.</span>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+
+    </section>
+
+  </body>
 </html>

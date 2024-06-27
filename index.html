@@ -28,24 +28,24 @@
    
       
       <img src="assests\GIF-2023-02-26-16-34-56.gif" >
-
+  <p>Drone shot of a shadow of a passing planew.</p>
       <h2>
       <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-        <p>For many, living under the approach path for a busy international airport is a reason to demand lower rent. But for me it held a great opportunity. One day walking around the neighborhood I heard the now familiar noise of an airplane flying low for landing and a few seconds later I was enveloped for an instant in darkness. Before I could realize what had happened it had already passed. I could not believe it, it was the planes shadow!</p>
-        <p>I could not let this special experience be a one time occurrence. Being engulfed for an instant in the shadow of a 44 thousand ton beast flying above you was something that i had to experience again. But how? My mind raced. I quickly sketched up a diagram and realized that I only need a few key pieces of information to make it all work. I then set out to build a proof of concept.</p>
+        <p>For many, living under the approach path for a busy international airport is a reason to demand lower rent. But for me it held a great opportunity. One day walking around the neighborhood I heard the now familiar noise of an airplane flying low for landing and a few seconds later I was enveloped for an instant in darkness. Before I could realize what had happened it had already passed. I could not believe it, it was the plane's shadow!</p>
+        <p>I could not let this special experience be a one time occurrence. Being engulfed for an instant in the shadow of a 44 thousand ton beast flying above you was something that I had to experience again. But how? My mind raced. I quickly sketched up a diagram and realized that I only need a few key pieces of information to make it all work. I then set out to build a proof of concept.</p>
 
       <h2>
       <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calculation</h2>
-        <p>In order to calculate the position of a the shadow one needs to gather the following information: </p>
+        <p>In order to calculate the position of a shadow one needs to gather the following information: </p>
 
         <li>Airplane location (Lat, Lon)</li>
         <li>Airplane height</li>
         <li>Sun position (altitude, azimuth)</li>
 
-        <p>Live airplane information is retrieved via <a href="https://airlabs.co/docs/flights">Airlabs API</a>. Sun position is uses the <a href="https://github.com/mourner/suncalc">Suncalc</a> JavaScript library.</p>
+        <p>Live airplane information is retrieved via <a href="https://airlabs.co/docs/flights">Airlabs API</a>. Sun position uses the <a href="https://github.com/mourner/suncalc">Suncalc</a> JavaScript library.</p>
 
-        <p>With this information the of the location where the shadow will be cast is just some trigonometry and Geodesic calculations using the <a href="https://www.movable-type.co.uk/scripts/geodesy-library.html">Geodesy</a> library.        </p>
+        <p>With this information, the location where the shadow will be cast is just some trigonometry and Geodesic calculations using the <a href="https://www.movable-type.co.uk/scripts/geodesy-library.html">Geodesy</a> library.        </p>
 
         <img src="https://www.fs.usda.gov/nac/buffers/images/guide/5.6a.jpg" >
 
@@ -54,7 +54,7 @@
         <h2>
           <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validation</h2>
           
-          <p>The code had been written, the UI build. I am consistently projecting the calculated position of shadows cast from overhead airplanes. But sitting in front of the computer there I have no idea if any of this actually translates to the real world. There is only one way to find out.
+          <p>The code had been written, the UI build. I am consistently projecting the calculated position of shadows cast from overhead airplanes. But sitting in front of the computer, I have no idea if any of this actually translates to the real world. There is only one way to find out.
           </p>
 
           <p>Loading the site on my phone I headed out to the beach, situated myself squarely in the expected trajectory and waited for a plane to approach.
@@ -76,7 +76,7 @@
               <p>Using the slider above the map, one can scroll through the trajectory of aircraft shadow for the whole day. Planes land using an <a href="https://en.wikipedia.org/wiki/Instrument_landing_system">ILS</a> which result and extremely precise and reliable approaches (displayed as a permanent red line on the map).
               </p>
 
-              <p>Thus, knowing the exact path used for approach, we can calculate the shadow trajectory for the different sun positions thought out the day.
+              <p>Thus, knowing the exact path used for approach, we can calculate the shadow trajectory for the different sun positions throughout the day.
               </p>
 
               <p>This can be used to know at what times one can expect shadows above their home. When sliding the shadow line, the corresponding  time is updated above the slider. 
@@ -88,7 +88,7 @@
               <h3>
                 <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Airplane Information</h3>
             
-                  <p>Clicking on a Airplane will bring up its flight information. Clicking on a shadow will display the name of the plane casting it. This is useful from crowded areads.
+                  <p>Clicking on a Airplane will bring up its flight information. Clicking on a shadow will display the name of the plane casting it. This is useful for crowded areas
                   </p>
 
                   <img src="assests\plane_info.png" style="width: 400px;"   >

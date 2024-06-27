@@ -32,7 +32,7 @@
       <h2>
       <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-        <p>For many living under the approach path for a busy international airport is a reason the demand lower rent. But for me it held a great opportunity. One day walking around the neighborhood i heard the now familiar noise of a airplane flying low for landing and a few seconds later i was enveloped for an instant in darkness. Before i could realize what had happened it had already passed. I could not believe it, it was the planes shadow!</p>
+        <p>For many, living under the approach path for a busy international airport is a reason to demand lower rent. But for me it held a great opportunity. One day walking around the neighborhood I heard the now familiar noise of an airplane flying low for landing and a few seconds later I was enveloped for an instant in darkness. Before I could realize what had happened it had already passed. I could not believe it, it was the planes shadow!</p>
         <p>I could not let this special experience be a one time occurrence. Being engulfed for an instant in the shadow of a 44 thousand ton beast flying above you was something that i had to experience again. But how? My mind raced. I quickly sketched up a diagram and realized that I only need a few key pieces of information to make it all work. I then set out to build a proof of concept.</p>
 
       <h2>
@@ -102,7 +102,7 @@
                   
                   <p>Is is useful to know which runways are currently in use since they affect the approach pattern. For example I would get shadows in my neighborhood only when runway 12 was active.
                     </p>
-                    <p>Using historical flight data I generated buffers using the <a href="https://shapely.readthedocs.io/en/stable/reference/shapely.buffer.html">Shapely</a> Python package. I expotred the coordinates of the buffers to GeoJson wichce Leaflet accespt.                  </p>
+                    <p>Using historical flight data I generated buffers using the <a href="https://shapely.readthedocs.io/en/stable/reference/shapely.buffer.html">Shapely</a> Python package. I exported the coordinates of the buffers to GeoJson which Leaflet accepts.                  </p>
 
                     <p>Using <a href="https://turfjs.org/">Turf.js</a>, the program can now recognize if airplanes are contained inside the geographic buffer (and in addition they are at the correct height and heading) and figure out the which runway is now active for approaches. </p>
 
@@ -112,7 +112,7 @@
                     <h2>
                       <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
       
-                      <p>As far as proving the initial concept and creating a interface to visualize the results, this project has been a great success. I have many more features I would want to add, such as using the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation API</a>  to notify the user of nearby shadows, among other. I learned so much new methods and skills and really enjoyed the creative process of giving life to an idea.</p>
+                      <p>As far as proving the initial concept and creating an interface to visualize the results, this project has been a great success. I have many more features I would want to add, such as using the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation API</a>  to notify the user of nearby shadows, among others. I learned so much new methods and skills and really enjoyed the creative process of giving life to an idea.</p>
 
                       
 
